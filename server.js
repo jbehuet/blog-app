@@ -8,8 +8,8 @@ let methodOverride = require('method-override')
 let morgan = require('morgan')
 let cors = require('cors')
 let routes = require('./app/routes')
-const ENV = require('./config/env')
-
+const ENV = require('./config/env')[process.env.NODE_ENV || 'development']
+console.log(ENV.facebookAuth.clientID)
 // Set a static folder used by express. This folder contains our Angular application
 app.use(express.static(__dirname + '/public'));
 // Set logs

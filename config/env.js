@@ -1,3 +1,18 @@
 module.exports = {
-    db : process.env.MONGODB_URI || 'mongodb://localhost:27017/blog'
+    "development": {
+        db: process.env.MONGODB_URI ||  'mongodb://localhost:27017/blog',
+        facebookAuth: {
+            clientID: process.env.FACEBOOK_ID || require('./dev').facebookAuth.clientID, // your App ID
+            clientSecret: process.env.FACEBOOK_SECRET || require('./dev').facebookAuth.clientSecret, // your App Secret
+            callbackURL: process.env.FACEBOOK_CALLBACK || require('./dev').facebookAuth.callbackURL
+        }
+    },
+    "production": {
+        db: process.env.MONGODB_URI ||  'mongodb://localhost:27017/blog',
+        facebookAuth: {
+            clientID: process.env.FACEBOOK_ID, // your App ID
+            clientSecret: process.env.FACEBOOK_SECRET, // your App Secret
+            callbackURL: process.env.FACEBOOK_CALLBACK
+        }
+    }
 }

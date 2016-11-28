@@ -4,7 +4,7 @@
   "description": "",
   "main": "blog-app.js",
   "scripts": {
-    "start": "node blog-app",
+    "start": "NODE_ENV=production node blog-app",
     "dev": "brunch watch --server"
   },
   "keywords": [],
