@@ -8,6 +8,7 @@ let methodOverride = require('method-override')
 let morgan = require('morgan')
 let cors = require('cors')
 let routes = require('./app/routes')
+const ENV = require('./config/env')
 
 // Set a static folder used by express. This folder contains our Angular application
 app.use(express.static(__dirname + '/public'));
@@ -32,7 +33,7 @@ app.use('/api', routes())
 
 // Connect to mongodb
 let mongoose = require('mongoose')
-mongoose.connect('mongodb://localhost:27017/blog');
+mongoose.connect(ENV.db);
 
 // Middleware to catch all errors
 app.use((error, request, response, next) => {
