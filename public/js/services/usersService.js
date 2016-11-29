@@ -32,7 +32,7 @@
             return new Promise((resolve, reject) => {
                 this.$cookies.put('token', token)
                 let payload = token.split('.')[1]
-                payload = this._decode_payload(payload)
+                payload = this._decodePayload(payload)
                 this.currentUser = payload._doc
                 resolve()
             })
@@ -45,7 +45,7 @@
             } else {
                 if (!this.currentUser) {
                     let payload = this.$cookies.get('token').split('.')[1]
-                    payload = this._decode_payload(payload)
+                    payload = this._decodePayload(payload)
                     this.currentUser = payload._doc
                     if (Math.round(new Date().getTime() / 1000) > payload.exp)
                         return this.disconnect()
@@ -56,15 +56,16 @@
             return deferred.promise
         }
 
-        _decode_payload(payload) {
-            return JSON.parse(decodeURI(this.b64_to_utf8(this.url_base64_decode(payload))))
+        //Private methods
+        _decodePayload(payload) {
+            return JSON.parse(decodeURI(this._base64ToUTF8(this._urlBase64Decode(payload))))
         }
 
-        b64_to_utf8(str) {
+        _base64ToUTF8(str) {
             return decodeURIComponent(escape(window.atob(str)));
         }
 
-        url_base64_decode(str) {
+        _urlBase64Decode(str) {
             var output = str.replace('-', '+').replace('_', '/');
             switch (output.length % 4) {
                 case 0:

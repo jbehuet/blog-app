@@ -3,11 +3,11 @@
         <i class="large material-icons">reorder</i>
     </a>
     <ul>
-        <!-- Button for futur filter -->
-        <li class="waves-effect waves-light"><a href="#!"><i class="material-icons">favorite</i></a></li>
-        <!-- Button used to create a new post, we change state to app.blog.item with params '_new' -->
-        <li class="waves-effect waves-light" ng-if="$ctrl.user"><a ui-sref="app.blog.item({id: '_new'})"><i class="material-icons">add_box</i></a></li>
-        <li class="waves-effect waves-light" ng-if="$ctrl.user"><a href=""><i class="material-icons">perm_identity</i></li>
-        <li class="waves-effect waves-light" ng-if="!$ctrl.user"><a href="/api/auth/facebook"><i class="material-icons">perm_identity</i></a></li>
+        <!-- Button used to create a new post, we change state to blog.item with params '_new' -->
+        <li class="waves-effect waves-light" ng-if="$ctrl.user"><a ui-sref="blog.item({id: '_new'})" title="Add"><i class="material-icons">add_box</i></a></li>
+        <li class="waves-effect waves-light" ng-if="$ctrl.user"><a ui-sref="blog.item({id: '_new'})" title="Profil"><i class="material-icons">assignment_ind</i></a></li>
+        <li class="waves-effect waves-light" ng-if="$ctrl.user"><a href="" ng-click="$ctrl.disconnect()" title="Disconnect"><i class="material-icons">exit_to_app</i></a></li>
+
+        <li class="waves-effect waves-light" ng-if="!$ctrl.user"><a href="/api/auth/facebook" title="Connect"><i class="material-icons">perm_identity</i></a></li>
     </ul>
 </div>

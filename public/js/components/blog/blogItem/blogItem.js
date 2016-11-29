@@ -32,7 +32,7 @@ Create Angular component blogItem into module app.blog with databinding properti
                 }
             } else {
                 //If $stateParams.id doesn't exist we change state to app.blog.list (redirection to list)
-                $state.go('app.blog.list')
+                $state.go('blog.list')
             }
 
             // Create delete function.
@@ -41,7 +41,7 @@ Create Angular component blogItem into module app.blog with databinding properti
                 // Call delete method form PostsService with post
                 PostsService.delete(this.post).then((res) => {
                     // when this request receive response we change state to app.blog.list (redirection to list)
-                    $state.go('app.blog.list')
+                    $state.go('blog.list')
                 })
             }
 

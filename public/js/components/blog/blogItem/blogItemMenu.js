@@ -16,6 +16,17 @@ Create Angular component blogItemMenu into module app.blog with databindings pro
             onDelete: "&",
             onSave: "&"
         },
-        templateUrl: 'js/components/blog/blogItem/blogItemMenu.html'
+        templateUrl: 'js/components/blog/blogItem/blogItemMenu.html',
+        controller: ['UsersService', function(UsersService) {
+            angular.extend(this, {
+                $onInit() {
+                    UsersService.getCurrent().then((user) => {
+                        this.user = user
+                    }).catch((err) => {
+
+                    })
+                }
+            })
+        }]
     })
 })(require('angular').module('app.blog'))
