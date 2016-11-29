@@ -6,16 +6,29 @@ Create Angular config in app.config module
     app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', ($stateProvider, $urlRouterProvider, $locationProvider) => {
         // Define prefix
         $locationProvider.hashPrefix('!')
-        // For each url not found redirection to '/'
+            // For each url not found redirection to '/'
         $urlRouterProvider.otherwise('/')
-        /*
-          Define a state with name 'app' this state is abstract and url is empty (root of application)
-          template is ui-view it's used to display nested views
-        */
+            /*
+              Define a state with name 'app' this state is abstract and url is empty (root of application)
+              template is ui-view it's used to display nested views
+            */
         $stateProvider.state('app', {
-            url: '',
-            abstract: true,
-            template: '<ui-view></ui-view>'
-        })
+                url: '',
+                abstract: true,
+                template: '<ui-view></ui-view>'
+            })
+            .state('app.callback', {
+                url: '/auth/callback/:token',
+                template: '',
+                controller: ['UsersService', '$stateParams', '$state', function(UsersService, $stateParams, $state) {
+                    if ($stateParams.token) {
+                        UsersService.setToken($stateParams.token).then(() => {
+                            $state.go('app.blog.list')
+                        })
+                    } else {
+                        $state.go('app.blog.list')
+                    }
+                }]
+            })
     }])
 })(require('angular').module('app.config'))

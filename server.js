@@ -6,10 +6,12 @@ let app = express()
 let bodyParser = require('body-parser')
 let methodOverride = require('method-override')
 let morgan = require('morgan')
+let passport = require('passport')
 let cors = require('cors')
 let routes = require('./app/routes')
+require('./config/passport')(passport) // pass passport for configuration
 const ENV = require('./config/env')[process.env.NODE_ENV || 'development']
-console.log(ENV.facebookAuth.clientID)
+
 // Set a static folder used by express. This folder contains our Angular application
 app.use(express.static(__dirname + '/public'));
 // Set logs
@@ -28,8 +30,11 @@ app.use(methodOverride('X-HTTP-Method-Override'))
 //CORS
 app.use(cors())
 
+// Initialize passport used by express for authentication
+app.use(passport.initialize())
+
 //Load all api routes
-app.use('/api', routes())
+app.use('/api', routes(passport))
 
 // Connect to mongodb
 let mongoose = require('mongoose')

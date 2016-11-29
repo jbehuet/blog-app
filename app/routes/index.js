@@ -5,7 +5,7 @@
 let fs = require('fs')
 let express = require('express')
 
-module.exports = () => {
+module.exports = (passport) => {
     const ROUTER = express.Router();
     // List all files in /app/routes folder
     fs.readdir('./app/routes', (error, files) => {
@@ -18,7 +18,7 @@ module.exports = () => {
                 // do not require index.js (this file)
                 if (route !== 'index') {
                     // require the route with ROUTER like param
-                    require('./' + route)(ROUTER)
+                    require('./' + route)(ROUTER, passport)
                 }
             })
     })
