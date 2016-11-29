@@ -13,7 +13,7 @@ blog.item : nested state of state app.blog, display blog-item component with edi
         */
         $stateProvider
             .state('blog', {
-                url: '',
+                url: '/posts',
                 abstract: true,
                 templateUrl: 'js/components/blog/blog.html'
             })

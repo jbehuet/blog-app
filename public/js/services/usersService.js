@@ -34,7 +34,7 @@
                 let payload = token.split('.')[1]
                 payload = this._decodePayload(payload)
                 this.currentUser = payload._doc
-                resolve()
+                resolve(this.currentUser)
             })
         }
 

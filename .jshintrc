@@ -1,7 +1,8 @@
 {
   "globals"   : {
     "angular"    : false,
-    "window"     : false
+    "window"     : false,
+    "Materialize" : false
   },
   "camelcase": true,
   "curly": false,

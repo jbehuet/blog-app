@@ -16,6 +16,7 @@ Create Angular component blogListMenu into module app.blog
               },
               disconnect(){
                 UsersService.disconnect().then(()=>{
+                  Materialize.toast('Disconnected', 4000, 'toast-warning')
                   this.user = null
                   $state.reload()
                 })
