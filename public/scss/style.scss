@@ -2,6 +2,7 @@ $primary: #0C8CF6;
 $success: #4caf50;
 $error: #ef5350;
 $warning: #ff9800;
+$transparent:rgba(255, 255, 255, 0);
 
 .pull-right {
     float: right;
@@ -23,4 +24,11 @@ textarea.materialize-textarea:focus:not([readonly]) {
 
 .toast-error{
   background-color: $error;
+}
+
+.card{
+  border: 1px solid $transparent;
+}
+.card:hover{
+  border: 1px solid $primary;
 }

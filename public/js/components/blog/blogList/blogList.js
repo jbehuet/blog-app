@@ -5,9 +5,17 @@ Create Angular component blogList into module app.blog
     'use strict'
     app.component('blogList', {
         templateUrl: 'js/components/blog/blogList/blogList.html',
-        controller: ['PostsService', function(PostsService) {
+        controller: ['UsersService', 'PostsService', function(UsersService, PostsService) {
             // Define startIndex variable with default value 3
             this.startIndex = 3
+
+            // Call getCurrent() method from UsersService.
+            // When this request receive response we affect response data to this controller variable user
+            UsersService.getCurrent().then((user) => {
+                this.user = user
+            }).catch((err) => {
+
+            });
 
             // Call get() method from PostsService.
             // When this request receive response we affect response data to this controller variable posts

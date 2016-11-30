@@ -4,9 +4,6 @@
     </a>
     <ul>
         <!-- Button used to create a new post, we change state to blog.item with params '_new' -->
-        <li class="waves-effect waves-light" ng-if="$ctrl.user"><a ui-sref="blog.item({id: '_new'})" title="Add"><i class="material-icons">add_box</i></a></li>
-        <li class="waves-effect waves-light" ng-if="$ctrl.user"><a href="" ng-click="$ctrl.disconnect()" title="Disconnect"><i class="material-icons">exit_to_app</i></a></li>
-
-        <li class="waves-effect waves-light" ng-if="!$ctrl.user"><a href="/api/auth/facebook" title="Connect"><i class="material-icons">perm_identity</i></a></li>
+        <li class="waves-effect waves-light"><a ui-sref="blog.item({id: '_new'})" title="Add"><i class="material-icons">add_box</i></a></li>
     </ul>
 </div>

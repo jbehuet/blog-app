@@ -1,0 +1,9 @@
+<nav class="blue darken-1">
+    <div class="nav-wrapper container">
+        <a href="#" class="brand-logo">App</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li ng-if="!$ctrl.user"><a href="/api/auth/facebook" title="Connect"><i class="material-icons left">perm_identity</i>Connect</a></li>
+            <li ng-if="$ctrl.user"><a href="" ng-click="$ctrl.disconnect()" title="Disconnect"><i class="material-icons left">close</i>Logout</a></li>
+        </ul>
+    </div>
+</nav>

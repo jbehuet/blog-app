@@ -1,6 +1,6 @@
 <section>
     <!-- Display blogListMenu component (see blogListMenu.js )-->
-    <blog-list-menu />
+    <blog-list-menu ng-if="$ctrl.user" />
     <div class="row">
         <!-- Display message if there is no post -->
         <div ng-if="$ctrl.posts.length === 0" class="center">

@@ -15,7 +15,25 @@ blog.item : nested state of state app.blog, display blog-item component with edi
             .state('blog', {
                 url: '/posts',
                 abstract: true,
-                templateUrl: 'js/components/blog/blog.html'
+                templateUrl: 'js/components/blog/blog.html',
+                controller: ['UsersService', '$state', function(UsersService, $state) {
+                    angular.extend(this, {
+                        $onInit() {
+                            UsersService.getCurrent().then((user) => {
+                                this.user = user
+                            }).catch((err) => {
+
+                            })
+                        },
+                        disconnect() {
+                            UsersService.disconnect().then(() => {
+                                Materialize.toast('Disconnected', 4000, 'toast-warning')
+                                this.user = null
+                                $state.reload()
+                            })
+                        }
+                    })
+                }]
             })
             .state('blog.list', {
                 url: '/',

@@ -9,5 +9,6 @@ There are all depedencies (module)
   require('angular-cookies'),
   'app.config',
   'app.services',
+  'app.common',
   'app.blog'
 ]))
