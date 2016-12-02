@@ -23,7 +23,7 @@
             <!-- Display this link, only if it's editable and not in edit mode, to change state to app.blog.list (go back) -->
             <a ng-if="$ctrl.editable && !$ctrl.editMode" ui-sref="blog.list">Close</a>
             <!-- Display these links, only if it's in edit mode  -->
-            <a ng-if="$ctrl.editMode" ng-click="$ctrl.undo()" class="waves-effect"><i class="material-icons">undo</i></a>
+            <a ng-if="$ctrl.editMode && !$ctrl.post.isNew" ng-click="$ctrl.undo()" class="waves-effect"><i class="material-icons">undo</i></a>
             <a ng-if="$ctrl.editMode" ng-click="$ctrl.save()" class="waves-effect"><i class="material-icons">done</i></a>
             <!-- On click change value of post.isFav to inverse of this value -->
             <a href="" ng-click="$ctrl.post.isFav = !$ctrl.post.isFav">

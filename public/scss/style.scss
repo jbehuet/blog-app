@@ -27,6 +27,10 @@ textarea.materialize-textarea:focus:not([readonly]) {
     box-shadow: 0 1px 0 0 $primary;
 }
 
+#toast-container{
+    top: 80%;
+}
+
 .toast-success {
     background-color: $success;
 }

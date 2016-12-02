@@ -18,7 +18,8 @@ Create Angular component blogItem into module app.blog with databinding properti
                 // If $stateParams.id is _new (when you click on add on blogListMenu button see blogListMenu.html)
                 if ($stateParams.id === '_new') {
                     // Affect post variable with empty object
-                    this.post = {};
+                    this.post = {}
+                    this.post.isNew = true;
                     // Affect editMode property to true
                     this.editMode = true
                 } else {
