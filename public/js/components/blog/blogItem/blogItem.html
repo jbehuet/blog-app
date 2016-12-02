@@ -19,16 +19,16 @@
         </div>
         <div class="card-action">
             <!-- Display this link, only if it's not editable, to change state to blog.item with the post id -->
-            <a ng-if="!$ctrl.editable" ui-sref="blog.item({id: $ctrl.post._id})" class="blue-text text-darken-1">Read more</a>
+            <a ng-if="!$ctrl.editable" ui-sref="blog.item({id: $ctrl.post._id})">Read more</a>
             <!-- Display this link, only if it's editable and not in edit mode, to change state to app.blog.list (go back) -->
-            <a ng-if="$ctrl.editable && !$ctrl.editMode" ui-sref="blog.list" class="blue-text text-darken-1">Close</a>
+            <a ng-if="$ctrl.editable && !$ctrl.editMode" ui-sref="blog.list">Close</a>
             <!-- Display these links, only if it's in edit mode  -->
-            <a ng-if="$ctrl.editMode" ng-click="$ctrl.undo()" class="waves-effect blue-text text-darken-1"><i class="material-icons">undo</i></a>
-            <a ng-if="$ctrl.editMode" ng-click="$ctrl.save()" class="waves-effect blue-text text-darken-1"><i class="material-icons">done</i></a>
+            <a ng-if="$ctrl.editMode" ng-click="$ctrl.undo()" class="waves-effect"><i class="material-icons">undo</i></a>
+            <a ng-if="$ctrl.editMode" ng-click="$ctrl.save()" class="waves-effect"><i class="material-icons">done</i></a>
             <!-- On click change value of post.isFav to inverse of this value -->
             <a href="" ng-click="$ctrl.post.isFav = !$ctrl.post.isFav">
                 <!-- Change icon from post.isFav value -->
-                <i class="material-icons pull-right  blue-text">{{($ctrl.post.isFav ? 'turned_in' : 'turned_in_not')}}</i>
+                <i class="material-icons pull-right">{{($ctrl.post.isFav ? 'turned_in' : 'turned_in_not')}}</i>
             </a>
         </div>
     </div>

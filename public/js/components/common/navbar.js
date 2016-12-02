@@ -7,8 +7,6 @@
                 $onInit() {
                     UsersService.getCurrent().then((user) => {
                         this.user = user
-                        //ONLY FOR MATERIALIZE
-                        $(".dropdown-button").dropdown();
                     }).catch((err) => {
 
                     })

@@ -1,11 +1,24 @@
 $primary: #0C8CF6;
+$secondary: #64b5f6;
 $success: #4caf50;
 $error: #ef5350;
 $warning: #ff9800;
-$transparent:rgba(255, 255, 255, 0);
+$transparent: rgba(255, 255, 255, 0);
 
 .pull-right {
     float: right;
+}
+
+.btn-fixed-bottom {
+    position: fixed;
+    right: 23px;
+    bottom: 23px;
+}
+
+nav {
+    li {
+        min-width: 200px;
+    }
 }
 
 input[type=text]:focus:not([readonly]),
@@ -14,21 +27,22 @@ textarea.materialize-textarea:focus:not([readonly]) {
     box-shadow: 0 1px 0 0 $primary;
 }
 
-.toast-success{
-  background-color: $success;
+.toast-success {
+    background-color: $success;
 }
 
-.toast-warning{
-  background-color: $warning;
+.toast-warning {
+    background-color: $warning;
 }
 
-.toast-error{
-  background-color: $error;
+.toast-error {
+    background-color: $error;
 }
 
-.card{
-  border: 1px solid $transparent;
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-floating) {
+    color: $secondary;
 }
-.card:hover{
-  border: 1px solid $primary;
+
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-floating):hover {
+    color: $primary;
 }
