@@ -10,6 +10,10 @@
             this.currentUser = null
         }
 
+        update(user){
+          return this.$http.put('/api/users/' + user._id, user)
+        }
+
         connect(data) {
             return new Promise((resolve, reject) => {
                 this.$http.get('/api/auth/facebook', data).then((res) => {

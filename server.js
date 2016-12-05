@@ -51,7 +51,8 @@ exports.startServer = (port, path, callback) => {
     // Create server
     let server = http.Server(app);
     // Listening
-    server.listen(process.env.PORT || port, callback)
+    port = process.env.PORT || port
+    server.listen(port, callback)
     console.log(`server listening on port ${port}`)
 
     //Intercept when application killed

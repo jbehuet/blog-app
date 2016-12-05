@@ -1,4 +1,3 @@
-
 'use strict'
 let mongoose = require('mongoose')
 
@@ -10,6 +9,10 @@ module.exports = mongoose.model('User', new mongoose.Schema({
         email: String,
         photo: String
     },
+    bookmarks: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'post'
+    }],
     isAdmin: {
         type: Boolean,
         default: false

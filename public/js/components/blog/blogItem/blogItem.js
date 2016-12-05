@@ -11,8 +11,17 @@ Create Angular component blogItem into module app.blog with databinding properti
             editable: "<"
         },
         templateUrl: 'js/components/blog/blogItem/blogItem.html',
-        controller: ['PostsService', '$stateParams', '$state', function(PostsService, $stateParams, $state) {
+        controller: ['UsersService', 'PostsService', '$stateParams', '$state', function(UsersService, PostsService, $stateParams, $state) {
             let initialPost;
+
+            // Call getCurrent() method from UsersService.
+            // When this request receive response we affect response data to this controller variable user
+            UsersService.getCurrent().then((user) => {
+                this.user = user
+            }).catch((err) => {
+
+            })
+
             // Test if $stateParams.id exists (ex: stateParams.id is 1234567 form this url http://domain.ext/1234567)
             if ($stateParams.id) {
                 // If $stateParams.id is _new (when you click on add on blogListMenu button see blogListMenu.html)
@@ -66,6 +75,31 @@ Create Angular component blogItem into module app.blog with databinding properti
                 // Affect initialPost value to post and change editMode to false
                 this.post = initialPost
                 this.editMode = false
+            }
+
+            this.isFav = () => {
+                return (this.user.bookmarks.filter((post) => {
+                    return post._id === this.post._id
+                }).length > 0)
+            }
+
+            this.addOrRemoveToBookmark = () => {
+                // Try to find post in bookmarks
+                let postFound = this.user.bookmarks.find((post) => post._id === this.post._id)
+
+                if (!postFound) {
+                    //Not found
+                    this.user.bookmarks.push(this.post)
+                } else {
+                    //Found
+                    this.user.bookmarks = this.user.bookmarks.filter((post) => {
+                        return post._id !== this.post._id
+                    })
+                }
+
+                UsersService.update(this.user).then(() => {
+                    Materialize.toast((postFound ? 'Removed' : 'Added'), 2000, (postFound ? 'toast-warning' : 'toast-success'))
+                })
             }
 
         }]

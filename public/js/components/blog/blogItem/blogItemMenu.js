@@ -10,23 +10,13 @@ Create Angular component blogItemMenu into module app.blog with databindings pro
     'use strict'
     app.component('blogItemMenu', {
         bindings: {
+            user: "<",
             editMode: "=",
             onUndo: "&",
             onEdit: "&",
             onDelete: "&",
             onSave: "&"
         },
-        templateUrl: 'js/components/blog/blogItem/blogItemMenu.html',
-        controller: ['UsersService', function(UsersService) {
-            angular.extend(this, {
-                $onInit() {
-                    UsersService.getCurrent().then((user) => {
-                        this.user = user
-                    }).catch((err) => {
-
-                    })
-                }
-            })
-        }]
+        templateUrl: 'js/components/blog/blogItem/blogItemMenu.html'
     })
 })(require('angular').module('app.blog'))

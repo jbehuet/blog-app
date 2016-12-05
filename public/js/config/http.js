@@ -11,7 +11,7 @@
                 },
                 responseError(response) {
                     let state = $injector.get('$state')
-                    if ( (response.status === 401 || response.status === 403) && state.current.name !== 'login')
+                    if ( (response.status === 401 || response.status === 403))
                         state.go('blog.list')
                     return $q.reject(response)
                 }
