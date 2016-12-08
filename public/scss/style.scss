@@ -21,36 +21,40 @@ nav {
     li {
         min-width: 200px;
     }
+
+    .brand-logo {
+        i {
+            font-size: 36px;
+        }
+    }
 }
 
-.fb{
-  background: $facebook;
+.fb {
+    background: $facebook;
 }
 
 .waves-effect.waves-fb {
-   background-color: rgba(59, 89, 152, 1);
+    background-color: rgba(59, 89, 152, 1);
 }
-
 /* Override colors */
-
-.input-field .prefix.active{
-  color:$primary;
+.input-field .prefix.active {
+    color: $primary;
 }
 
-input[type=text]:focus:not([readonly])+label,
 input[type=password]:focus:not([readonly])+label,
+input[type=text]:focus:not([readonly])+label,
 textarea.materialize-textarea:focus:not([readonly])+label {
-  color:$primary;
+    color: $primary;
 }
 
-input[type=text]:focus:not([readonly]),
 input[type=password]:focus:not([readonly]),
+input[type=text]:focus:not([readonly]),
 textarea.materialize-textarea:focus:not([readonly]) {
     border-bottom: 1px solid $primary;
     box-shadow: 0 1px 0 0 $primary;
 }
 
-#toast-container{
+#toast-container {
     top: 80%;
 }
 
