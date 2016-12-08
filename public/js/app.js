@@ -11,5 +11,6 @@ There are all depedencies (module)
   'app.config',
   'app.services',
   'app.common',
+  'app.login',
   'app.blog'
 ]))

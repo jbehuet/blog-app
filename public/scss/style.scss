@@ -4,6 +4,8 @@ $success: #4caf50;
 $error: #ef5350;
 $warning: #ff9800;
 $transparent: rgba(255, 255, 255, 0);
+$white: #FFFFFF;
+$facebook: #3b5998;
 
 .pull-right {
     float: right;
@@ -21,7 +23,28 @@ nav {
     }
 }
 
+.fb{
+  background: $facebook;
+}
+
+.waves-effect.waves-fb {
+   background-color: rgba(59, 89, 152, 1);
+}
+
+/* Override colors */
+
+.input-field .prefix.active{
+  color:$primary;
+}
+
+input[type=text]:focus:not([readonly])+label,
+input[type=password]:focus:not([readonly])+label,
+textarea.materialize-textarea:focus:not([readonly])+label {
+  color:$primary;
+}
+
 input[type=text]:focus:not([readonly]),
+input[type=password]:focus:not([readonly]),
 textarea.materialize-textarea:focus:not([readonly]) {
     border-bottom: 1px solid $primary;
     box-shadow: 0 1px 0 0 $primary;

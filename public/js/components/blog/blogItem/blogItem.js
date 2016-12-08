@@ -78,9 +78,7 @@ Create Angular component blogItem into module app.blog with databinding properti
             }
 
             this.isFav = () => {
-                return (this.user.bookmarks.filter((post) => {
-                    return post._id === this.post._id
-                }).length > 0)
+                return (this.user.bookmarks.find((post) => post._id === this.post._id))
             }
 
             this.addOrRemoveToBookmark = () => {

@@ -15,7 +15,7 @@ Create Angular config in app.config module
         $stateProvider.state('app', {
                 url: '',
                 abstract: true,
-                template: '<ui-view></ui-view>'
+                template: '<navbar /><div class="container"><ui-view></ui-view></div>'
             })
             .state('callback', {
                 url: '/auth/callback/:token',
