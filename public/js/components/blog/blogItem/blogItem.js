@@ -72,12 +72,17 @@ Create Angular component blogItem into module app.blog with databinding properti
             // Create undo function.
             // If you want to use in view you can call with $ctrl.undo()
             this.undo = () => {
-                // Affect initialPost value to post and change editMode to false
-                this.post = initialPost
-                this.editMode = false
+                if (!this.post.isNew) {
+                    // Affect initialPost value to post and change editMode to false
+                    this.post = initialPost
+                    this.editMode = false
+                } else {
+                  $state.go('blog.list')
+                }
             }
 
             this.isFav = () => {
+                if (!this.post) return
                 return (this.user.bookmarks.find((post) => post._id === this.post._id))
             }
 
