@@ -16,8 +16,10 @@
 
         connect(data) {
             return new Promise((resolve, reject) => {
-                this.$http.get('/api/auth/facebook', data).then((res) => {
-                    resolve(res.data)
+                this.$http.post('/api/auth', data).then((res) => {
+                    this.currentUser = res.data.user
+                    this.$cookies.put('token', res.data.token)
+                    resolve(res.data.user)
                 }).catch(() => {
                     reject()
                 })

@@ -16,7 +16,7 @@ class UsersController extends Controller {
             let token = jwt.sign(req.user, ENV.token, {
                 expiresIn: "24h"
             })
-            
+
             res.redirect("/#!/auth/callback/" + token);
         } else {
             res.send(401);

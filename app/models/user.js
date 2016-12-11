@@ -2,11 +2,21 @@
 let mongoose = require('mongoose')
 
 module.exports = mongoose.model('User', new mongoose.Schema({
+    email: {
+        type: String,
+        require: true
+    },
+    name: {
+        type: String,
+        require: true
+    },
+    password: {
+        type: String,
+        default : ''
+    },
     facebook: {
         id: String,
         token: String,
-        name: String,
-        email: String,
         photo: String
     },
     bookmarks: [{

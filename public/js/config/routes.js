@@ -23,7 +23,7 @@ Create Angular config in app.config module
                 controller: ['UsersService', '$stateParams', '$state', function(UsersService, $stateParams, $state) {
                     if ($stateParams.token) {
                         UsersService.setToken($stateParams.token).then((user) => {
-                            let toastContent = `Welcome ${user.facebook.name} !`
+                            let toastContent = `Welcome ${user.name} !`
                             Materialize.toast(toastContent, 4000, 'toast-success')
                             $state.go('blog.list')
                         })
