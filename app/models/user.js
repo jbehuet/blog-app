@@ -4,7 +4,8 @@ let mongoose = require('mongoose')
 module.exports = mongoose.model('User', new mongoose.Schema({
     email: {
         type: String,
-        require: true
+        require: true,
+        unique: true
     },
     name: {
         type: String,

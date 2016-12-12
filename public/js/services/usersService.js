@@ -10,6 +10,10 @@
             this.currentUser = null
         }
 
+        create(user){
+          return this.$http.post('/api/users', user)
+        }
+
         update(user){
           return this.$http.put('/api/users/' + user._id, user)
         }
@@ -20,8 +24,8 @@
                     this.currentUser = res.data.user
                     this.$cookies.put('token', res.data.token)
                     resolve(res.data.user)
-                }).catch(() => {
-                    reject()
+                }).catch((err) => {
+                    reject(err)
                 })
             })
         }

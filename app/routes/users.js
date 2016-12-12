@@ -22,7 +22,7 @@ module.exports = (app) => {
     })
 
     app.delete('/users/:id', (req, res, next) => {
-        return ctrl.delete(req, res, next)
+      return ctrl.delete(req, res, next)
     })
 
 }

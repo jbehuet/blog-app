@@ -33,6 +33,7 @@ class Controller {
             if (err) {
                 next(err)
             } else {
+                delete document.password
                 res.json(document)
             }
         })
