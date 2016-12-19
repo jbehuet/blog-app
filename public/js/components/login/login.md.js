@@ -1,6 +1,13 @@
-((app) => {
-    'use strict'
-    app.config(['$stateProvider', ($stateProvider) => {
+import accountComponent from './account'
+import loginComponent from './login'
+import connectComponent from './connect'
+
+let loginModule = angular.module('app.login', [])
+    .component('account', accountComponent)
+    .component('login', loginComponent)
+    .component('connect', connectComponent)
+    .config(['$stateProvider', ($stateProvider) => {
+        'use strict'
         $stateProvider
             .state('app.login', {
                 url: '',
@@ -16,4 +23,6 @@
                 template: '<account></account>'
             })
     }])
-})(require('angular').module('app.login', []))
+    .name
+
+export default loginModule

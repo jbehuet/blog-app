@@ -1,3 +1,7 @@
-((app)=>{
+import navbarComponent from './navbar'
 
-})(require('angular').module('app.common', []))
+let commonModule = angular.module('app.common', [])
+    .component('navbar', navbarComponent)
+    .name
+
+export default commonModule

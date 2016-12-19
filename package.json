@@ -5,7 +5,9 @@
   "main": "blog-app.js",
   "scripts": {
     "start": "NODE_ENV=production node blog-app",
-    "dev": "brunch watch --server"
+    "watch:build": "webpack --watch",
+    "watch:server": "nodemon blog-app --watch \"./app\"",
+    "dev": "npm run watch:server | npm run watch:build"
   },
   "keywords": [],
   "author": "Jérôme BEHUET <jbehuet@gmail.com>",
@@ -27,12 +29,13 @@
     "passport-facebook": "^2.1.1"
   },
   "devDependencies": {
-    "auto-reload-brunch": "^2.7.1",
-    "babel-brunch": "^6.0.6",
-    "brunch": "^2.9.1",
-    "clean-css-brunch": "^2.0.0",
-    "css-brunch": "^2.6.1",
-    "javascript-brunch": "^2.0.0",
-    "sass-brunch": "^2.7.0"
+    "babel-core": "^6.21.0",
+    "babel-loader": "^6.2.10",
+    "babel-preset-es2015": "^6.18.0",
+    "css-loader": "^0.26.1",
+    "node-sass": "^4.1.0",
+    "sass-loader": "^4.1.0",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.14.0"
   }
 }

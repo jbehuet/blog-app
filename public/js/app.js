@@ -2,15 +2,27 @@
 This file is the entry point of Angular application.
 There are all depedencies (module)
 */
-((app) => {
-  'use strict'
-})(require('angular').module('app', [
-  require('angular-ui-router'),
-  require('angular-cookies'),
-  require('angular-materialize'),
-  'app.config',
-  'app.services',
-  'app.common',
-  'app.login',
-  'app.blog'
-]))
+
+import style from '../scss/style.scss' //require style
+
+import angular from 'angular'
+import angularUIRouter from 'angular-ui-router'
+import angularCookies from 'angular-cookies'
+import angularMaterialize from 'angular-materialize'
+
+import config from './config/config.md'
+import services from './services/services.md'
+import common from './components/common/common.md'
+import login from './components/login/login.md'
+import blog from './components/blog/blog.md'
+
+angular.module('app', [
+    angularUIRouter,
+    angularCookies,
+    angularMaterialize,
+    config,
+    services,
+    common,
+    login,
+    blog
+])

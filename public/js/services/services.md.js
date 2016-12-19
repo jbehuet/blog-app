@@ -1,6 +1,12 @@
 /*
 Create app.service module
 */
-((app)=>{
+import postsService from './postsService'
+import usersService from './usersService'
 
-})(require('angular').module('app.services', []))
+let servicesModule = angular.module('app.services', [])
+    .service('PostsService', postsService)
+    .service('UsersService', usersService)
+    .name
+
+export default servicesModule

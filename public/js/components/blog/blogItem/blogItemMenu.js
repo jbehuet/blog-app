@@ -6,17 +6,16 @@ Create Angular component blogItemMenu into module app.blog with databindings pro
 - onDelete : function
 - onSave : function
 */
-((app) => {
-    'use strict'
-    app.component('blogItemMenu', {
-        bindings: {
-            user: "<",
-            editMode: "=",
-            onUndo: "&",
-            onEdit: "&",
-            onDelete: "&",
-            onSave: "&"
-        },
-        templateUrl: 'js/components/blog/blogItem/blogItemMenu.html'
-    })
-})(require('angular').module('app.blog'))
+let blogItemMenu = {
+    bindings: {
+        user: "<",
+        editMode: "=",
+        onUndo: "&",
+        onEdit: "&",
+        onDelete: "&",
+        onSave: "&"
+    },
+    templateUrl: 'js/components/blog/blogItem/blogItemMenu.html'
+}
+
+export default blogItemMenu

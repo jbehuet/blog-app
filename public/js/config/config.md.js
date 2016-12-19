@@ -1,6 +1,12 @@
 /*
 Create app.config module
 */
-((app)=>{
+import routes from './routes'
+import http from './http'
 
-})(require('angular').module('app.config', []))
+let configModule = angular.module('app.config', [])
+    .config(routes)
+    .config(http)
+    .name
+
+export default configModule
