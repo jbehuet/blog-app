@@ -4,6 +4,7 @@
   "description": "",
   "main": "blog-app.js",
   "scripts": {
+    "postinstall":"webpack -p --progress",
     "start": "NODE_ENV=production node blog-app",
     "watch:build": "webpack --watch",
     "watch:server": "nodemon blog-app --watch \"./app\"",
@@ -26,9 +27,7 @@
     "mongoose": "^4.6.5",
     "morgan": "^1.7.0",
     "passport": "^0.3.2",
-    "passport-facebook": "^2.1.1"
-  },
-  "devDependencies": {
+    "passport-facebook": "^2.1.1",
     "babel-core": "^6.21.0",
     "babel-loader": "^6.2.10",
     "babel-preset-es2015": "^6.18.0",

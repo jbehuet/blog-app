@@ -10,7 +10,6 @@ let passport = require('passport')
 let cors = require('cors')
 let routes = require('./app/routes')
 require('./config/passport')(passport) // pass passport for configuration
-console.log(process.env.NODE_ENV)
 const ENV = require('./config/env')[process.env.NODE_ENV || 'development']
 
 // Set a static folder used by express. This folder contains our Angular application
