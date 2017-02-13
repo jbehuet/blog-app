@@ -3,6 +3,7 @@
 [![Licence](https://img.shields.io/badge/licence-MIT-blue.svg?maxAge=2592000)](https://github.com/jbehuet/blog-app/blob/master/LICENCE)
 [![GitHub forks](https://img.shields.io/github/forks/jbehuet/blog-app.svg)](https://github.com/jbehuet/blog-app/network)
 
+
 Blog Project.  
 
 > _This Project is a sample project for WildCodeSchool's students._  
